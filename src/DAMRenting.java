@@ -1,5 +1,6 @@
 import DBManager.DBManager;
 import GUI.AnyadirVehiculo;
+import GUI.EliminarVehiculo;
 import POJO.Vehiculo;
 import GUI.AnyadirVehiculo;
 import javax.swing.*;
@@ -32,7 +33,7 @@ public static void anyadirVehiculos(){
     JFrame frame = new JFrame("Añadir Vehiculo");
     frame.setContentPane(new AnyadirVehiculo().getPanel1());
     frame.pack();
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     frame.setVisible(true);
 
 }
@@ -86,6 +87,12 @@ public static void anyadirVehiculos(){
     }
 
     private static void eliminarVehiculo() {
+        JFrame frame = new JFrame("EliminarVehiculo");
+        frame.setContentPane(new EliminarVehiculo().panel1);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(400,400);
+        frame.pack();
+        frame.setVisible(true);
     }
 
     public static void main(String[] args) {

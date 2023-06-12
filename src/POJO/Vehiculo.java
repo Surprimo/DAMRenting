@@ -4,6 +4,11 @@ public class Vehiculo {
     private final String matricula;
     private final String marca;
     private final String modelo;
+
+    public String getMatricula() {
+        return matricula;
+    }
+
     private String color;
     private int diasAlquilado;
     private float precioDia;

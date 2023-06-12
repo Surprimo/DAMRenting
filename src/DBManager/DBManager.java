@@ -123,7 +123,48 @@ public class DBManager {
         }
 
     }
-    public void setVehiculo(){
+    public static void insertarVehiculo(String matricula, String modelo, String marca, String color, int diasAlquilado, double precioDia, String dniCliente) {
+        try {
+            // Preparar la sentencia SQL para insertar un vehículo
+            String sql = "INSERT INTO vehiculos (Matricula, Modelo, Marca, Color, DiasAlquilado, PrecioDia, DniCliente) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = conn.prepareStatement(sql);
+
+            // Establecer los valores de los parámetros
+            statement.setString(1, matricula);
+            statement.setString(2, modelo);
+            statement.setString(3, marca);
+            statement.setString(4, color);
+            statement.setInt(5, diasAlquilado);
+            statement.setDouble(6, precioDia);
+            statement.setString(7, dniCliente);
+
+            // Ejecutar la sentencia SQL
+            statement.executeUpdate();
+
+            // Cerrar la conexión y el statement
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static Vehiculo buscarVehiculo(String matricula){
+        ArrayList<Vehiculo> vehiculos=getVehiculosData();
+        for (Vehiculo vehiculo : vehiculos) {
+            if (vehiculo.getMatricula() == matricula) {
+                return vehiculo;
+            }
+        }
+        return null;
+    }
+    public static void eliminarVehiculo(String matricula){
+        // Preparar la sentencia SQL para insertar un vehículo
+        try{
+            String sql = "DELETE ";
+            PreparedStatement statement = conn.prepareStatement(sql);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }
+
